@@ -49,7 +49,7 @@ app.post("/users", async (req, res) => {
 // PUT update item
 app.put("/users/:id", async (req, res) => {
     const result = await collection.updateOne(
-        { _id: req.params.id },
+        { id: req.params.id },
         { $set: req.body }
     );
     res.json(result);
@@ -58,7 +58,7 @@ app.put("/users/:id", async (req, res) => {
 // DELETE item
 app.delete("/users/:id", async (req, res) => {
     const result = await collection.deleteOne({
-        _id: req.params.id,
+        id: req.params.id,
     });
     res.json(result);
 });
